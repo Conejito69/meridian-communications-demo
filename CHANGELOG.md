@@ -76,8 +76,8 @@ for the reasoning behind individual decisions, not just what changed.
 ### Added
 
 - Full Salesforce Enterprise metadata for the fictional Meridian
-  Communications org: 7 custom objects (37 fields), standard-object
-  extensions on Account/Case/Opportunity, 7 Record Types, an 11-role
+  Communications org: 7 custom objects (38 fields), standard-object
+  extensions on Account/Case/Opportunity, 9 Record Types, an 11-role
   hierarchy, 5 Public Groups, 4 Queues, 6 custom tabs, 4 validation rules,
   5 sharing-rule entries, 10 Permission Sets, 6 Permission Set Groups,
   3 Lightning Apps, 6 flows + 1 Approval Process, 6 reports, 1 dashboard

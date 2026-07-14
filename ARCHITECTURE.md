@@ -158,7 +158,7 @@ instead of forcing a 7th group.
    subflow, then — if the order has a related Opportunity — updates
    `Opportunity.Has_Service_Order__c` so the Closed Won validation rule can pass.
 2. **Screen Flow — `Guided_Service_Provisioning`**
-   5 screens, 2 decisions: agent enters an order number → Get Records looks it
+   6 screens, 2 decisions: agent enters an order number → Get Records looks it
    up → branches on found/not-found → confirms site survey completion →
    branches on confirmed/not-confirmed → collects activation date/notes →
    updates the order to the Provisioning stage → confirmation screen.

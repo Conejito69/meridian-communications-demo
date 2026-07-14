@@ -25,7 +25,7 @@ for the full reasoning.
 
 | Area                 | Highlights                                                                                | Docs                                                                     |
 | -------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| **Data model**       | 7 custom objects, standard-object extensions, 7 Record Types                              | [Entity relationship diagram](PORTFOLIO/diagrams/entity-relationship.md) |
+| **Data model**       | 7 custom objects, standard-object extensions, 9 Record Types                              | [Entity relationship diagram](PORTFOLIO/diagrams/entity-relationship.md) |
 | **Security**         | 11-role hierarchy, 10 Permission Sets → 6 Permission Set Groups, 3 sharing-rule policies  | [Security model diagram](PORTFOLIO/diagrams/security-model.md)           |
 | **Automation**       | 6 declarative flows + 1 Approval Process, zero Apex triggers                              | [Automation flow diagrams](PORTFOLIO/diagrams/automation-flows.md)       |
 | **Apps & reporting** | 3 role-specific Lightning Apps, 6 reports, 1 cross-functional dashboard                   | [Architecture overview](PORTFOLIO/diagrams/architecture-overview.md)     |

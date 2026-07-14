@@ -31,7 +31,7 @@ tiered service desk. The platform needed to:
 
 | Layer          | Highlights                                                                                                                                                |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Data model** | 7 custom objects, standard-object extensions on Account/Case/Opportunity, 7 Record Types across 3 objects                                                 |
+| **Data model** | 7 custom objects, standard-object extensions on Account/Case/Opportunity, 9 Record Types across 3 objects                                                 |
 | **Security**   | 11-role hierarchy, 10 Permission Sets composed into 6 Permission Set Groups, 5 Public Groups, 4 Queues, 3 sharing-rule policies (5 concrete rule entries) |
 | **Automation** | 6 Flows (record-triggered, screen, scheduled, and subflow) + 1 Approval Process — no Apex triggers; every automation need was met declaratively           |
 | **Apps**       | 3 role-specific Lightning Apps (Sales, Provisioning, Support consoles)                                                                                    |
