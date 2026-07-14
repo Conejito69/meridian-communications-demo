@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Service</fullName>
+    <label>New Service</label>
+    <active>true</active>
+    <description
+  >A first-time service order for a customer at a given network site.</description>
+</RecordType>

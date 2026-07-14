@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Outage</fullName>
+    <label>Service Outage</label>
+    <active>true</active>
+    <businessProcess>Standard_Support_Process</businessProcess>
+    <description
+  >A reported loss or degradation of an active service. Critical-priority outages are shared with Escalation Reviewers via sharing rule and require a resolution summary before closure.</description>
+</RecordType>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Billing_Account__c</fullName>
+    <label>Has Billing Account</label>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+    <description
+  >Set to true by automation whenever a Billing_Account__c is linked to this account. Exists because Billing_Account__c.Account__c is a Lookup (not Master-Detail), so a native roll-up summary isn't available — this field lets the Business Customer validation rule check the relationship declaratively.</description>
+</CustomField>

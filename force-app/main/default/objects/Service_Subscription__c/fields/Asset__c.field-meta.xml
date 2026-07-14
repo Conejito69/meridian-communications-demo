@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset__c</fullName>
+    <label>Asset</label>
+    <type>Lookup</type>
+    <referenceTo>Asset</referenceTo>
+    <relationshipLabel>Service Subscriptions</relationshipLabel>
+    <relationshipName>Service_Subscriptions</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description
+  >The installed asset (e.g. provisioned equipment) associated with this subscription, when applicable.</description>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Service Order Line</label>
+    <pluralLabel>Service Order Lines</pluralLabel>
+    <description
+  >An individual product line within a Service Order, capturing quantity, unit price, and discount.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <visibility>Public</visibility>
+    <sharingModel>ControlledByParent</sharingModel>
+    <nameField>
+        <label>Service Order Line Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>SOL-{00000}</displayFormat>
+        <startingNumber>1</startingNumber>
+    </nameField>
+    <enableActivities>true</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+</CustomObject>

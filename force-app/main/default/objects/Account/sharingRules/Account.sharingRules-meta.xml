@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Business_Accounts_North_To_Sales_North</fullName>
+        <label>Business Accounts (North) to Regional Sales - North</label>
+        <description
+    >Gives the North regional sales team visibility into Business Customer accounts in their region, regardless of individual ownership.</description>
+        <accessLevel>Edit</accessLevel>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Business Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </criteriaItems>
+        <sharedTo>
+            <group>Regional_Sales_North</group>
+        </sharedTo>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Business_Accounts_South_To_Sales_South</fullName>
+        <label>Business Accounts (South) to Regional Sales - South</label>
+        <description
+    >Gives the South regional sales team visibility into Business Customer accounts in their region, regardless of individual ownership.</description>
+        <accessLevel>Edit</accessLevel>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Business Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </criteriaItems>
+        <sharedTo>
+            <group>Regional_Sales_South</group>
+        </sharedTo>
+    </sharingCriteriaRules>
+</SharingRules>

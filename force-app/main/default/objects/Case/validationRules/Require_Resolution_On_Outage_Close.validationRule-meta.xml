@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Resolution_On_Outage_Close</fullName>
+    <active>true</active>
+    <description
+  >A Service Outage case must document how the issue was resolved before it can be closed.</description>
+    <errorConditionFormula
+  >AND(RecordType.DeveloperName = &quot;Service_Outage&quot;, ISPICKVAL(Status, &quot;Closed&quot;), ISBLANK(Resolution_Summary__c))</errorConditionFormula>
+    <errorMessage
+  >A resolution summary is required before closing a Service Outage case.</errorMessage>
+    <errorDisplayField>Resolution_Summary__c</errorDisplayField>
+</ValidationRule>

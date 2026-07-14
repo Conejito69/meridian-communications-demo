@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Critical_Outage_Escalation_Visibility</fullName>
+        <label>Critical Outage Escalation Visibility</label>
+        <description
+    >Gives the Escalation Reviewers group visibility into critical, active service outages so they can proactively review before an SLA breach.</description>
+        <accessLevel>Edit</accessLevel>
+        <criteriaItems>
+            <field>RecordType</field>
+            <operation>equals</operation>
+            <value>Service_Outage</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Priority</field>
+            <operation>equals</operation>
+            <value>Critical</value>
+        </criteriaItems>
+        <sharedTo>
+            <group>Escalation_Reviewers</group>
+        </sharedTo>
+    </sharingCriteriaRules>
+</SharingRules>

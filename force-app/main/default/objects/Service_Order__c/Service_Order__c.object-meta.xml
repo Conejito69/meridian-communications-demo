@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Service Order</label>
+    <pluralLabel>Service Orders</pluralLabel>
+    <description
+  >The fulfillment record for a request to add, change, or cancel a customer's managed services. Drives the provisioning process from submission through activation.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <visibility>Public</visibility>
+    <sharingModel>Private</sharingModel>
+    <nameField>
+        <label>Service Order Number</label>
+        <type>AutoNumber</type>
+        <displayFormat>SO-{00000}</displayFormat>
+        <startingNumber>1</startingNumber>
+    </nameField>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+</CustomObject>

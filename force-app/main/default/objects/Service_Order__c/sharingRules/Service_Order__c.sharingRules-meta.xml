@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Provisioning_Orders_Visible_To_Sales_North</fullName>
+        <label>Provisioning Orders Visible to Regional Sales - North</label>
+        <description
+    >Lets North sales reps track fulfillment progress read-only on orders owned by the Provisioning team, without granting edit access.</description>
+        <accessLevel>Read</accessLevel>
+        <sharedFrom>
+            <roleAndSubordinates>Provisioning_Manager</roleAndSubordinates>
+        </sharedFrom>
+        <sharedTo>
+            <group>Regional_Sales_North</group>
+        </sharedTo>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Provisioning_Orders_Visible_To_Sales_South</fullName>
+        <label>Provisioning Orders Visible to Regional Sales - South</label>
+        <description
+    >Lets South sales reps track fulfillment progress read-only on orders owned by the Provisioning team, without granting edit access.</description>
+        <accessLevel>Read</accessLevel>
+        <sharedFrom>
+            <roleAndSubordinates>Provisioning_Manager</roleAndSubordinates>
+        </sharedFrom>
+        <sharedTo>
+            <group>Regional_Sales_South</group>
+        </sharedTo>
+    </sharingOwnerRules>
+</SharingRules>

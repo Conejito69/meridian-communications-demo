@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Service_Order__c</fullName>
+    <label>Has Service Order</label>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+    <description
+  >Set to true by the Service Order Fulfillment Orchestration flow whenever a Service_Order__c is linked to this opportunity. Exists because Service_Order__c.Opportunity__c is a Lookup (not Master-Detail), so a native roll-up summary isn't available — this field lets the Closed Won validation rule check the relationship declaratively.</description>
+</CustomField>

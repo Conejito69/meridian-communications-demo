@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Account_Required_For_Business</fullName>
+    <active>true</active>
+    <description
+  >Business Customer accounts must have a Billing Account before they can be invoiced.</description>
+    <errorConditionFormula
+  >AND(ISPICKVAL(Type, &quot;Business Customer&quot;), NOT(Has_Billing_Account__c))</errorConditionFormula>
+    <errorMessage
+  >A Billing Account is required for Business Customer accounts.</errorMessage>
+</ValidationRule>

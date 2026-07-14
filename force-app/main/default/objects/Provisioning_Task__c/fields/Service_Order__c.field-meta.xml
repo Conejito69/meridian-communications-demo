@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Order__c</fullName>
+    <label>Service Order</label>
+    <type>Lookup</type>
+    <referenceTo>Service_Order__c</referenceTo>
+    <relationshipLabel>Provisioning Tasks</relationshipLabel>
+    <relationshipName>Provisioning_Tasks</relationshipName>
+    <required>true</required>
+    <deleteConstraint>Cascade</deleteConstraint>
+    <description
+  >The service order this fulfillment task was generated for.</description>
+</CustomField>

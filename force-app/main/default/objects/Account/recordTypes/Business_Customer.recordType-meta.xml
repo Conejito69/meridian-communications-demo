@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Customer</fullName>
+    <label>Business Customer</label>
+    <active>true</active>
+    <description
+  >A direct business customer purchasing managed connectivity, voice, security, or cloud backup services.</description>
+</RecordType>

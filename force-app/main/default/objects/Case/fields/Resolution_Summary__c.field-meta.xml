@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resolution_Summary__c</fullName>
+    <label>Resolution Summary</label>
+    <type>LongTextArea</type>
+    <length>2000</length>
+    <visibleLines>5</visibleLines>
+    <description
+  >Required summary of how the issue was resolved. Enforced by validation rule for Service Outage cases before closure.</description>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLA_Target_DateTime__c</fullName>
+    <label>SLA Target Date/Time</label>
+    <type>DateTime</type>
+    <description
+  >The deadline by which this case must be resolved to meet its service-level agreement. Read by the SLA Breach Monitor scheduled flow.</description>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Network Site</label>
+    <pluralLabel>Network Sites</pluralLabel>
+    <description
+  >A physical service delivery location for a customer account. Business customers can have multiple network sites, each independently provisioned and supported.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <visibility>Public</visibility>
+    <sharingModel>Private</sharingModel>
+    <nameField>
+        <label>Network Site Name</label>
+        <type>Text</type>
+    </nameField>
+    <enableActivities>true</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+</CustomObject>

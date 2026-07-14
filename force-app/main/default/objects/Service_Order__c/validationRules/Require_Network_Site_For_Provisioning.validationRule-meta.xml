@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Network_Site_For_Provisioning</fullName>
+    <active>true</active>
+    <description
+  >An order cannot move into Provisioning until a site is known to provision service at.</description>
+    <errorConditionFormula
+  >AND(ISPICKVAL(Stage__c, &quot;Provisioning&quot;), ISBLANK(Network_Site__c))</errorConditionFormula>
+    <errorMessage
+  >A Network Site is required before this order can move to Provisioning.</errorMessage>
+    <errorDisplayField>Network_Site__c</errorDisplayField>
+</ValidationRule>

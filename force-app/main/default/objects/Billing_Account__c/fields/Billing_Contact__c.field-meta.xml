@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Contact__c</fullName>
+    <label>Billing Contact</label>
+    <type>Lookup</type>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Billing Accounts</relationshipLabel>
+    <relationshipName>Billing_Accounts</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description
+  >The contact responsible for receiving invoices and billing communications.</description>
+</CustomField>

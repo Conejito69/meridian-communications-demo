@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Queue__c</fullName>
+    <label>Assigned Queue</label>
+    <type>Text</type>
+    <length>80</length>
+    <description
+  >Name of the operational queue this task is routed to for pickup (e.g. Provisioning).</description>
+</CustomField>

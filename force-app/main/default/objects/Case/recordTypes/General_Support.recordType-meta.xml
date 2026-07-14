@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Support</fullName>
+    <label>General Support</label>
+    <active>true</active>
+    <businessProcess>Standard_Support_Process</businessProcess>
+    <description
+  >A catch-all category for support requests that don't fall under outage, billing, or provisioning.</description>
+</RecordType>

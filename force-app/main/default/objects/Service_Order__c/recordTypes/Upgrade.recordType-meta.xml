@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upgrade</fullName>
+    <label>Upgrade</label>
+    <active>true</active>
+    <description
+  >A change order that modifies an existing service subscription (e.g. bandwidth increase, added line).</description>
+</RecordType>

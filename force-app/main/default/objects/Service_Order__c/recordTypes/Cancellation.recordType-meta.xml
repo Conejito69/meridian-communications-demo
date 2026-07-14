@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation</fullName>
+    <label>Cancellation</label>
+    <active>true</active>
+    <description
+  >An order to decommission and end an existing service subscription.</description>
+</RecordType>
