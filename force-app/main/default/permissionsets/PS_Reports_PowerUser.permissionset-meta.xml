@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PS_Reports_PowerUser</fullName>
+    <label>Reports - Power User</label>
+    <description
+  >Cross-cutting add-on granted alongside a job-function permission set. Grants no object or field access of its own — only expanded reporting capabilities (running, exporting, and publishing reports to public folders) on top of whatever records the base permission set already exposes.</description>
+    <userPermissions>
+        <name>RunReports</name>
+        <enabled>true</enabled>
+    </userPermissions>
+    <userPermissions>
+        <name>ExportReport</name>
+        <enabled>true</enabled>
+    </userPermissions>
+    <userPermissions>
+        <name>CreateReportsInPublicFolders</name>
+        <enabled>true</enabled>
+    </userPermissions>
+</PermissionSet>

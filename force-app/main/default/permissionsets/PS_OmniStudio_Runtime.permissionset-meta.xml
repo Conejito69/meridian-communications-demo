@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PS_OmniStudio_Runtime</fullName>
+    <label>OmniStudio - Runtime (Placeholder)</label>
+    <description
+  >Placeholder permission set reserved for OmniStudio (Salesforce Industries) runtime access. Intentionally grants no object or field permissions yet: the OmniStudio managed package is not confirmed installed in this org (see ARCHITECTURE.md), and referencing its objects/fields here before the package exists would break deployment. Populate this permission set with FlexCard/OmniScript/Integration Procedure runtime access once availability is validated — it already exists in PSG_Provisioning_Specialist so no group membership needs to change when that happens.</description>
+</PermissionSet>

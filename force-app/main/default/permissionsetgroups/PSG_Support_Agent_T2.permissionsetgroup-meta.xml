@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Support Agent - Tier 2</label>
+    <description
+  >Everything Tier 1 has, plus the ability to author Escalation Logs and delete Cases.</description>
+    <permissionSets>PS_Support_Tier1</permissionSets>
+    <permissionSets>PS_Support_Tier2</permissionSets>
+</PermissionSetGroup>

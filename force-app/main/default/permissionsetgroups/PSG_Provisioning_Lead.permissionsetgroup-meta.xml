@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Provisioning Lead</label>
+    <description
+  >Everything a Provisioning Specialist has, plus manager-level authority: deleting provisioning tasks and read-only visibility into Billing Accounts.</description>
+    <permissionSets>PS_Provisioning_Agent</permissionSets>
+    <permissionSets>PS_OmniStudio_Runtime</permissionSets>
+    <permissionSets>PS_Provisioning_Manager</permissionSets>
+</PermissionSetGroup>

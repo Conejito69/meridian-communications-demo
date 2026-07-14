@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Provisioning Specialist</label>
+    <description
+  >Standard access for a Provisioning Specialist fulfilling Service Orders. Includes the OmniStudio runtime placeholder set so no group membership needs to change once that package's availability is confirmed.</description>
+    <permissionSets>PS_Provisioning_Agent</permissionSets>
+    <permissionSets>PS_OmniStudio_Runtime</permissionSets>
+</PermissionSetGroup>

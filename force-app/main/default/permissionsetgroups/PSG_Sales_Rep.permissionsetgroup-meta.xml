@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Sales Rep</label>
+    <description
+  >Standard access for an Account Executive: base CRM working access, the ability to create Service Orders off a closed-won Opportunity, and expanded reporting.</description>
+    <permissionSets>PS_Sales_Base</permissionSets>
+    <permissionSets>PS_Sales_CPQ_Access</permissionSets>
+    <permissionSets>PS_Reports_PowerUser</permissionSets>
+</PermissionSetGroup>
