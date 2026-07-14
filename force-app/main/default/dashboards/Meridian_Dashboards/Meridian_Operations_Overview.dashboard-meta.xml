@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <title>Meridian Communications — Operations Overview</title>
+    <description
+  >Cross-functional snapshot of fulfillment pipeline, recurring revenue, provisioning workload, and support escalations.</description>
+    <dashboardType>LoggedInUser</dashboardType>
+    <isGridLayout>false</isGridLayout>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <textColor>#3C3C3C</textColor>
+    <titleColor>#1B4F8C</titleColor>
+    <titleSize>14</titleSize>
+    <chartTheme>light</chartTheme>
+    <colorPalette>water</colorPalette>
+    <leftSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <header>Service Orders by Stage</header>
+            <footer>Fulfillment pipeline across all active orders</footer>
+            <componentType>ColumnStacked</componentType>
+            <report>Meridian_Reports/Service_Orders_By_Stage</report>
+            <drillToDetailEnabled>true</drillToDetailEnabled>
+            <legendPosition>Bottom</legendPosition>
+        </components>
+        <components>
+            <header>Open Provisioning Tasks</header>
+            <footer>Not Started, In Progress, or Blocked</footer>
+            <componentType>Table</componentType>
+            <report>Meridian_Reports/Open_Provisioning_Tasks</report>
+            <drillToDetailEnabled>true</drillToDetailEnabled>
+        </components>
+    </leftSection>
+    <middleSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <header>Monthly Recurring Revenue by Service Type</header>
+            <footer>Active subscriptions only</footer>
+            <componentType>Donut</componentType>
+            <report>Meridian_Reports/Active_Service_Subscriptions_MRR</report>
+            <chartSummary>
+                <column>Monthly_Recurring_Revenue__c</column>
+                <aggregate>Sum</aggregate>
+            </chartSummary>
+            <showPercentage>true</showPercentage>
+            <showTotal>true</showTotal>
+            <drillToDetailEnabled>true</drillToDetailEnabled>
+            <legendPosition>Right</legendPosition>
+        </components>
+    </middleSection>
+    <rightSection>
+        <columnSize>Medium</columnSize>
+        <components>
+            <header>Escalated Cases</header>
+            <footer>Currently in Escalated status</footer>
+            <componentType>Metric</componentType>
+            <report>Meridian_Reports/Escalated_Cases</report>
+            <metricLabel>Escalated Cases</metricLabel>
+            <drillToDetailEnabled>true</drillToDetailEnabled>
+        </components>
+        <components>
+            <header>Business Accounts by Region</header>
+            <footer>North vs. South customer base</footer>
+            <componentType>Pie</componentType>
+            <report>Meridian_Reports/Business_Accounts_By_Region</report>
+            <showPercentage>true</showPercentage>
+            <drillToDetailEnabled>true</drillToDetailEnabled>
+            <legendPosition>Right</legendPosition>
+        </components>
+    </rightSection>
+</Dashboard>

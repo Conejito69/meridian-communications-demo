@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>Business Accounts by Region</name>
+    <description
+  >Business Customer accounts grouped by sales region — mirrors the Regional Sales sharing rules.</description>
+    <format>Summary</format>
+    <reportType>Account</reportType>
+    <scope>AllAccounts</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <field>Region__c</field>
+    </columns>
+    <columns>
+        <field>BILLING_CITY</field>
+    </columns>
+    <groupingsDown>
+        <field>Region__c</field>
+        <sortOrder>Asc</sortOrder>
+        <sortType>Column</sortType>
+    </groupingsDown>
+    <filter>
+        <criteriaItems>
+            <column>TYPE</column>
+            <operator>equals</operator>
+            <value>Business Customer</value>
+        </criteriaItems>
+    </filter>
+</Report>
