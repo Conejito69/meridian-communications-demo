@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <label>Service Order Discount Approval Router</label>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+    <interviewLabel
+  >Service Order Discount Approval Router {!$Flow.CurrentDateTime}</interviewLabel>
+    <description
+  >Record-triggered on Service_Order__c create/update. When the order's highest line-item discount crosses the approval threshold (20%) and wasn't already over threshold, submits the order to the Discount Approval process before it can proceed.</description>
+
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Submit_For_Approval</targetReference>
+        </connector>
+        <object>Service_Order__c</object>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Max_Discount_Percent__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>20.0</numberValue>
+            </value>
+        </filters>
+        <doesRequireRecordChangedToMeetCriteria
+    >true</doesRequireRecordChangedToMeetCriteria>
+        <triggerType>RecordAfterSave</triggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+    </start>
+
+    <actionCalls>
+        <name>Submit_For_Approval</name>
+        <label>Submit For Approval</label>
+        <locationX>176</locationX>
+        <locationY>130</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>comments</name>
+            <value>
+                <stringValue
+        >Auto-submitted: line-item discount exceeds the 20% approval threshold.</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+</Flow>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <label>Create Provisioning Tasks</label>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+    <interviewLabel
+  >Create Provisioning Tasks {!$Flow.CurrentDateTime}</interviewLabel>
+    <description
+  >Autolaunched subflow. Given a Service Order Id and a task type, iterates that order's line items and creates one Provisioning Task per line, routed to the Provisioning queue. Called by Service_Order_Fulfillment_Orchestration.</description>
+
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>taskType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OrderLines</name>
+        <dataType>SObject</dataType>
+        <objectType>Service_Order_Line__c</objectType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CurrentLine</name>
+        <dataType>SObject</dataType>
+        <objectType>Service_Order_Line__c</objectType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+
+    <formulas>
+        <name>DueDateFormula</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 7</expression>
+    </formulas>
+
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Order_Lines</targetReference>
+        </connector>
+    </start>
+
+    <recordLookups>
+        <name>Get_Order_Lines</name>
+        <label>Get Order Lines</label>
+        <locationX>176</locationX>
+        <locationY>130</locationY>
+        <connector>
+            <targetReference>Loop_Order_Lines</targetReference>
+        </connector>
+        <object>Service_Order_Line__c</object>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Service_Order__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <outputReference>OrderLines</outputReference>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>false</storeOutputAutomatically>
+    </recordLookups>
+
+    <loops>
+        <name>Loop_Order_Lines</name>
+        <label>Loop Order Lines</label>
+        <locationX>176</locationX>
+        <locationY>250</locationY>
+        <collectionReference>OrderLines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <assignNextValueToReference>CurrentLine</assignNextValueToReference>
+        <nextValueConnector>
+            <targetReference>Create_Task</targetReference>
+        </nextValueConnector>
+    </loops>
+
+    <recordCreates>
+        <name>Create_Task</name>
+        <label>Create Task</label>
+        <locationX>300</locationX>
+        <locationY>370</locationY>
+        <connector>
+            <targetReference>Loop_Order_Lines</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Service_Order__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Task_Type__c</field>
+            <value>
+                <elementReference>taskType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Assigned_Queue__c</field>
+            <value>
+                <stringValue>Provisioning</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Due_Date__c</field>
+            <value>
+                <elementReference>DueDateFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Provisioning_Task__c</object>
+    </recordCreates>
+</Flow>

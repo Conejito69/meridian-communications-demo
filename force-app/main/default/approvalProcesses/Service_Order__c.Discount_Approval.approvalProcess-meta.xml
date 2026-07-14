@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Service Order Discount Approval</label>
+    <description
+  >Routes a Service Order for sales-leadership sign-off when any of its line items carries a discount above 20%. Submitted automatically by the Service_Order_Discount_Approval_Router flow; entry criteria are also defined here as a second line of defense in case a record is ever submitted directly.</description>
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <enableMobileDeviceAccess>true</enableMobileDeviceAccess>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+    </approvalPageFields>
+    <approvalPageFields>
+        <field>Account__c</field>
+    </approvalPageFields>
+    <approvalPageFields>
+        <field>Stage__c</field>
+    </approvalPageFields>
+    <approvalPageFields>
+        <field>Max_Discount_Percent__c</field>
+    </approvalPageFields>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Service_Order__c.Max_Discount_Percent__c</field>
+            <operation>greaterThan</operation>
+            <value>20</value>
+        </criteriaItems>
+    </entryCriteria>
+    <approvalStep>
+        <name>Sales_Leadership_Review</name>
+        <label>Sales Leadership Review</label>
+        <description
+    >A sales leader (selected by the submitter) reviews the discount and approves or rejects the order.</description>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>adhoc</type>
+            </approver>
+        </assignedApprover>
+    </approvalStep>
+</ApprovalProcess>

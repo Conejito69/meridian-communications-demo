@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <label>SLA Breach Monitor</label>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+    <interviewLabel>SLA Breach Monitor {!$Flow.CurrentDateTime}</interviewLabel>
+    <description
+  >Scheduled flow, runs daily. For every open Case whose SLA target has passed: logs an Escalation Log entry, and if the case is Critical priority, also flips its status to Escalated so Tier 2 and Escalation Reviewers pick it up.</description>
+
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Critical_Priority</targetReference>
+        </connector>
+        <object>Case</object>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsClosed</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SLA_Target_DateTime__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </filters>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2026-07-15</startDate>
+            <startTime>06:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+
+    <decisions>
+        <name>Is_Critical_Priority</name>
+        <label>Is Critical Priority?</label>
+        <locationX>176</locationX>
+        <locationY>130</locationY>
+        <defaultConnector>
+            <targetReference>Log_Escalation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Critical</defaultConnectorLabel>
+        <rules>
+            <name>Priority_Is_Critical</name>
+            <label>Priority Is Critical</label>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Priority</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Critical</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Escalate_Case</targetReference>
+            </connector>
+        </rules>
+    </decisions>
+
+    <recordUpdates>
+        <name>Escalate_Case</name>
+        <label>Escalate Case</label>
+        <locationX>50</locationX>
+        <locationY>250</locationY>
+        <connector>
+            <targetReference>Log_Escalation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Escalated</stringValue>
+            </value>
+        </inputAssignments>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+    </recordUpdates>
+
+    <recordCreates>
+        <name>Log_Escalation</name>
+        <label>Log Escalation</label>
+        <locationX>200</locationX>
+        <locationY>370</locationY>
+        <inputAssignments>
+            <field>Case__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalated_From__c</field>
+            <value>
+                <stringValue>SLA Breach Monitor (Scheduled Flow)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalated_To__c</field>
+            <value>
+                <stringValue>Support Manager</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalation_Reason__c</field>
+            <value>
+                <stringValue
+        >SLA target passed with the case still open. Automatically flagged by the daily SLA Breach Monitor.</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalated_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Escalation_Log__c</object>
+    </recordCreates>
+</Flow>
