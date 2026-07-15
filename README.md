@@ -1,6 +1,6 @@
 # Meridian Communications — Enterprise Salesforce Architecture
 
-[![CI](https://github.com/EdissonM86/meridian-communications-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/EdissonM86/meridian-communications-demo/actions/workflows/ci.yml)
+[![CI](https://github.com/Conejito69/meridian-communications-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/Conejito69/meridian-communications-demo/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Salesforce API](https://img.shields.io/badge/Salesforce%20API-v66.0-00A1E0?logo=salesforce)](sfdx-project.json)
 [![SFDX](https://img.shields.io/badge/Built%20with-SFDX-00A1E0)](https://developer.salesforce.com/tools/salesforcecli)
