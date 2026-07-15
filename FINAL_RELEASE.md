@@ -12,8 +12,8 @@ release final pedido.
 **GitHub (publicado, verificado en el remoto real)**
 
 - **Hallazgo importante durante esta fase**: el `gh` CLI de esta máquina
-  estaba autenticado como `EdissonM86`, una cuenta que vos no reconociste
-  ni recordás haber creado — posible que la haya provisto EPAM con tu
+  estaba autenticado como `EdissonM86`, una cuenta que no reconociste ni
+  recordás haber creado — posiblemente provista por un tercero con tu
   mail. Se descartó por completo esa cuenta sin tocarla ni publicar nada
   ahí, y se migró todo a `Conejito69`, la cuenta que sí controlás.
 - 16 commits pusheados y verificados en
@@ -108,8 +108,8 @@ que ya se activó antes en este proyecto con `sf org list --json`.
    herramienta? Sin esto, Partes 3, 4 y 5 no pueden avanzar.
 2. **Las 4 limitaciones de Salesforce de arriba**: agotaron mi capacidad
    de diagnóstico por configuración. Necesitarían: un caso de soporte a
-   Salesforce, o probar con un Dev Hub completamente distinto (no
-   EPAM), o aceptar el org como demo solo-metadata sin datos/usuarios.
+   Salesforce, o probar con un Dev Hub completamente distinto, o
+   aceptar el org como demo solo-metadata sin datos/usuarios.
 3. **Captura de screenshots/video**: requiere que abras vos el org
    (`sf org open --target-org meridian-demo`) y captures manualmente, o
    que autorices explícitamente exponer un frontdoor URL para que lo

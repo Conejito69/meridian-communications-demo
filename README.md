@@ -65,9 +65,12 @@ meridian-communications-demo/
 ├── scripts/                   Deployment, data generation, evidence capture
 ├── ARCHITECTURE.md            Full technical design document
 ├── DEMO/                      Interview-ready walkthrough scripts
-├── PORTFOLIO/                 Diagrams, screenshots, deployment guide, sample-data docs
-└── MARKETING/                 Platform-specific portfolio/sales content
+└── PORTFOLIO/                 Diagrams, screenshots, deployment guide, sample-data docs
 ```
+
+_(A local-only `MARKETING/` folder also exists for platform-specific sales
+content, deliberately excluded from this public repo — see
+[Security](#security) below.)_
 
 ## Status
 
@@ -87,6 +90,15 @@ second, independent Scratch Org to rule out one-off corruption:
   licenses, and several custom objects take longer than expected to
   become queryable after deploy in this environment. Both are documented
   with evidence, not assumed away.
+
+## Security
+
+This repository went through a full security audit before being made
+public — see [SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md) for the
+methodology and findings. One folder (`MARKETING/`, real personal
+freelance-platform strategy notes, unrelated to the fictional Meridian
+company) was removed from git history entirely rather than just the
+working tree, since it isn't portfolio content at all.
 
 ## License
 

@@ -46,3 +46,7 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Real personal freelance-platform strategy notes -- not portfolio
+# content, deliberately kept out of this public repo (see SECURITY_AUDIT_REPORT.md)
+MARKETING/
