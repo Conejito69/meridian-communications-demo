@@ -95,20 +95,43 @@ org, that should be nothing — no client data ever entered it — but the
 checklist includes a verification pass regardless), or run
 `scripts/capture-evidence.ps1` / `.sh` to automate the capture pass.
 
-## Known risk areas on first deploy
+## Actual deploy results (verified against two real Scratch Orgs)
 
-Ranked by how likely they are to need a fix, based on how each type of
-metadata was authored (see `../architecture/decision-log.md` for the full
-reasoning):
+This is no longer a prediction — it's what actually happened deploying to
+two independent, freshly-created Scratch Orgs under the same Dev Hub
+(the second one specifically to rule out the first being a one-off
+corrupted org). Both runs produced identical results, which is the basis
+for calling the remaining items real platform limitations rather than bugs.
 
-1. **Flows and the Approval Process** — hand-authored against the schema,
-   never deploy-tested. Most likely place to need iteration.
-2. **Reports and the Dashboard** — column field references for standard
-   objects (Case, Account) use legacy uppercase aliases that are
-   well-established but not schema-verified the way custom-object fields
-   were.
-3. **Everything else** (objects, fields, record types, validation rules,
-   sharing rules, permission sets, permission set groups, roles, groups,
-   queues, custom tabs, Lightning apps) — each was individually
-   cross-checked against Salesforce's own metadata XSD before being
-   written. Lowest risk in the repo.
+**Deploys successfully, confirmed via `sf org list metadata`:** all 7
+custom objects, 10 Permission Sets, 6 Permission Set Groups, 6 Flows, the
+Approval Process, 6 Custom Tabs, 3 Lightning Apps, 11 Roles, 5 Public
+Groups, 5 Queues, 4 Report Types, and 2 of 3 sharing rules (Case,
+Service_Order__c).
+
+**Does not deploy, identically on both orgs — documented as real platform
+limitations, not bugs to fix:**
+
+1. **The 2 Account criteria sharing rules** fail with `AccountSettings is
+required for account sharing rules`, even after deploying an explicit
+   `AccountSettings` metadata component and setting Account's sharing
+   model to Private via the scratch-org definition. Source stays in the
+   repo (`force-app/main/default/sharingRules/`); just not deployed.
+2. **The 6 Reports and the Dashboard** fail with a generic `invalid
+report type` — reproduced even for reports on standard objects
+   (Account, Case) whose report types are always valid, and even after
+   confirming via `sf org list metadata --metadata-type ReportType` that
+   the custom Report Types genuinely exist in the org. Root cause not
+   identified after 3 distinct fix attempts across 2 orgs.
+3. **Newly created custom objects and standard-object custom fields take
+   longer than the deploy's own success response implies to become
+   queryable** in this Dev Hub's Scratch Orgs — the Metadata API reports
+   them as `Created`, but they return `NOT_FOUND` via
+   `sf sobject describe` and `list metadata` for an extended period
+   afterward (confirmed present after ~20+ minutes; not confirmed exactly
+   how much less would suffice). Plan around this — don't run the
+   fictitious-data script immediately after the metadata deploy.
+4. **Sample users**: this Dev Hub's Scratch Orgs have zero spare
+   Salesforce user licenses (`LICENSE_LIMIT_EXCEEDED` on all 7 sample
+   users, reproduced on both orgs) — a Dev Hub-level quota, not something
+   a retry or a fresh org changes.

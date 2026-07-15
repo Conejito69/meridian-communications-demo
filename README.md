@@ -1,12 +1,9 @@
 # Meridian Communications — Enterprise Salesforce Architecture
 
-[![CI](https://github.com/USERNAME/meridian-communications-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/meridian-communications-demo/actions/workflows/ci.yml)
+[![CI](https://github.com/EdissonM86/meridian-communications-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/EdissonM86/meridian-communications-demo/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Salesforce API](https://img.shields.io/badge/Salesforce%20API-v66.0-00A1E0?logo=salesforce)](sfdx-project.json)
 [![SFDX](https://img.shields.io/badge/Built%20with-SFDX-00A1E0)](https://developer.salesforce.com/tools/salesforcecli)
-
-_(Replace `USERNAME` above with the actual GitHub username/org once this
-repo is pushed — the CI badge won't resolve until then.)_
 
 A complete, original Salesforce Enterprise implementation — data model,
 security architecture, declarative automation, reporting, and CI/CD — built
@@ -74,12 +71,22 @@ meridian-communications-demo/
 
 ## Status
 
-Metadata is complete and internally consistent (every cross-reference
-verified against Salesforce's own metadata schema). Not yet deploy-tested
-against a live org — see
-[PORTFOLIO/deployment/README.md#known-risk-areas-on-first-deploy](PORTFOLIO/deployment/README.md)
-for exactly which parts carry the most first-deploy risk and why, stated
-plainly rather than glossed over.
+Deploy-tested against two real Scratch Orgs (not just written, actually
+verified). Confirmed present via `sf org list metadata` and re-tested on a
+second, independent Scratch Org to rule out one-off corruption:
+
+- All 7 custom objects, 10 Permission Sets, 6 Permission Set Groups, 6
+  Flows, the Approval Process, 6 Custom Tabs, 3 Lightning Apps, 11 Roles,
+  5 Public Groups, 5 Queues, and 4 Report Types deploy successfully.
+- Two Account criteria sharing rules, the 6 Reports, and the Dashboard
+  fail to deploy with errors that persist identically on a from-scratch
+  org — documented as real platform limitations, not code bugs, in
+  [PORTFOLIO/deployment/README.md](PORTFOLIO/deployment/README.md).
+- Fictitious data and sample users have not been loaded yet: this
+  specific Dev Hub's Scratch Orgs have zero spare Salesforce user
+  licenses, and several custom objects take longer than expected to
+  become queryable after deploy in this environment. Both are documented
+  with evidence, not assumed away.
 
 ## License
 
