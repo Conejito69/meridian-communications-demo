@@ -31,7 +31,7 @@ String usernameSuffix =
 Id standardUserProfileId = [
   SELECT Id
   FROM Profile
-  WHERE UserLicense.Name = 'Salesforce' AND PermissionsModifyAllData = false
+  WHERE UserLicense.Name = 'Salesforce' AND PermissionsModifyAllData = FALSE
   LIMIT 1
 ]
 .Id;
